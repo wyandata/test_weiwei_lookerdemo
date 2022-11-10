@@ -1,7 +1,9 @@
 include: "/views/refined/*.view.lkml"
+include: "/views/extends/*.view.lkml"
 
 
 explore: order_items {
+  persist_with: firstgroup
 
 
   join: inventory_items {

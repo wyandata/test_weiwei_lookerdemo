@@ -2,6 +2,7 @@ include: "/views/raw/order_items.view.lkml"
 
 view: +order_items {
 
+
   parameter: date_granularity {
     type: string
     allowed_value: { value: "Day" }
@@ -39,6 +40,22 @@ view: +order_items {
         ELSE NULL
         END ;;
   }
+
+
+  measure: total_sale_price {
+    value_format: "$0"
+  }
+
+  # measure: median_sale_price {
+  #   type: median
+  #   sql: ${total_sale_price} ;;
+  # }
+
+  # measure: avg_total_sale_price {
+  #   type: average
+  #   sql: ${total_sale_price} ;;
+  # }
+
 
 
   }

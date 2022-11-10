@@ -15,6 +15,7 @@ view: +inventory_items {
   }
 
 
+
     dimension: cost_USD {
       sql: ${cost} ;;
       html: <a href="https://www.xe.com/currencyconverter/convert/?Amount={{value}}}}&From=CAD&To=USD">Convert to USD</a> ;;
@@ -42,64 +43,55 @@ view: +inventory_items {
     }
 
 
-    dimension: is_boujee {
+    dimension: is_luxury {
       value_format_name: usd_0
       type: number
       sql: ${cost} ;;
       html:
-      {% if value > 10 %}
-      <font color="darkgreen">{{ rendered_value }} is Boujee</font>
+      {% if value > 50 %}
+      <font color="darkgreen">{{ rendered_value }} is luxury</font>
       {% endif %} ;;
     }
 
-    dimension: not_boujee {
+    dimension: not_luxury {
       value_format_name: usd_0
       type: number
       sql: ${cost} ;;
       html:
-      {% unless value > 10 %}
-      <font color="red">{{ rendered_value }} is Not Boujee</font>
+      {% unless value > 50 %}
+      <font color="red">{{ rendered_value }} is not luxury</font>
       {% endunless %} ;;
     }
 
-    dimension: if_not_boujee {
-      value_format_name: usd_0
-      type: number
-      sql: ${cost} ;;
-      html:
-      {% if value !> 10 %}
-      <font color="red">{{ rendered_value }} is Not Boujee</font>
-      {% endif %} ;;
-    }
 
-    dimension: boujeeness_identifier {
+    dimension: luxury_identifier {
       type: number
       sql: ${product_category};;
       html:
           {% if value == 'Fashion Hoodies & Sweatshirts' %}
-          <font color="teal">Boujee</font>
+          <font color="teal">Luxury</font>
           {% elsif value == 'Outerwear & Coats' %}
-          <font color="darkgreen">Very Boujee</font>
+          <font color="darkgreen">More luxury</font>
           {% elsif value == 'Dresses' %}
-          <font color="gold">Extremely Boujee</font>
+          <font color="gold">Much more luxury</font>
           {% else %}
-          <font color="darkred">Not Boujee</font>
+          <font color="darkred">Not luxury</font>
           {% endif %} ;;
     }
 
-    dimension: boujeeness_identifier_switch {
+    dimension: luxury_identifier_switch {
       type: number
       sql: ${product_category};;
       html:
           {% case value %}
              {% when 'Fashion Hoodies & Sweatshirts' %}
-          <font color="teal">Boujee</font>
+          <font color="teal">Luxury</font>
           {% when 'Outerwear & Coats' %}
-          <font color="darkgreen">Very Boujee</font>
+          <font color="darkgreen">More luxury</font>
           {% when 'Dresses' %}
-          <font color="gold">Extremely Boujee</font>
+          <font color="gold">Much more luxury</font>
           {% else %}
-          <font color="darkred">Not Boujee</font>
+          <font color="darkred">Not luxury</font>
           {% endcase %} ;;
     }
 

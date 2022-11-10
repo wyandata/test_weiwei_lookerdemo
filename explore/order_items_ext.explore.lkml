@@ -12,5 +12,5 @@ explore: order_extended {
     relationship: many_to_one
 }
 
-required_access_grants: [financial_data]
+# required_access_grants: [financial_data]
 }

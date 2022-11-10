@@ -9,8 +9,8 @@ datagroup: firstgroup {
   max_cache_age: "0 seconds"
 }
 
-access_grant: financial_data {
-  user_attribute: department
-  allowed_values: ["Finance", "abc"]
+# access_grant: financial_data {
+#   user_attribute: department
+#   allowed_values: ["Finance", "abc"]
 
-}
+# }
